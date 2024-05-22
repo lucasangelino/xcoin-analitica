@@ -3,15 +3,9 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-// <iframe title="integracion-test" width="1140" height="541.25"
-// src="https://app.powerbi.com/reportEmbed?reportId=3696ac31-d400-4c8c-bf21-a1a19ebdec7b&autoAuth=true&ctid=344979d0-d31d-4c57-8ba0-491aff4acaed"
-// frameborder="0" allowFullScreen="true"></iframe>
-
 const IFRAME_SRC = "https://infobae.com";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <main>
       <iframe src={IFRAME_SRC} title="Vite Logo" scrolling="no" />
