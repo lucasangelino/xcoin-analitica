@@ -1,0 +1,32 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+}
+
+.navbar-logo img {
+    height: 50px; /* Altura del logo */
+    width: auto; /* Mantiene la proporción del logo */
+}
+
+.navbar-logo a {
+    display: flex;
+    align-items: center; /* Centra el logo verticalmente */
+}
+
+.navbar-links {
+    list-style: none;
+}
+
+.navbar-links li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+}

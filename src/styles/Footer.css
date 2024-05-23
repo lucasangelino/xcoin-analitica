@@ -1,0 +1,7 @@
+.footer {
+    padding: 3px 20px; /* Reducir el padding vertical para disminuir la altura */
+    text-align: center;
+    background-color: #333;
+    color: white;
+    font-size: 0.8rem; /* Opcional: Ajustar el tamaño de la fuente si es necesario */
+}

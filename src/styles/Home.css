@@ -1,0 +1,19 @@
+/* styles/Home.css */
+.Home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.powerbi-iframe-container {
+  max-width: 100%; /* Limita el ancho máximo al 100% del contenedor padre */
+  overflow: hidden; /* Oculta cualquier contenido que desborde el ancho del contenedor */
+   /* pasddin 0 10px Mantiene un poco de espacio a los lados si es necesario */
+}
+
+iframe {
+  width: 100%; /* Asegura que el iframe ocupe todo el ancho de su contenedor */
+  height: 800px; /* Ajusta la altura según sea necesario */
+  border: none; /* Elimina el borde del iframe */
+}
