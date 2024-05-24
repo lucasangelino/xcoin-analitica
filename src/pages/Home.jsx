@@ -6,9 +6,7 @@ import '../styles/Home.css'; // Asegúrate de que el CSS está siendo importado 
 
 function Home() {
     const navbarLinks = [
-        { path: '/features', label: 'Características' },
-        { path: '/about', label: 'Acerca De' },
-        { path: '/contact', label: 'Contacto' }
+        { path: '/', label: 'Cerrar sesion' }
     ];
 
     return (

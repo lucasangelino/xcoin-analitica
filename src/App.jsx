@@ -4,14 +4,13 @@ import LoginPage from './pages/LoginPage';
 import Home from './pages/Home';
 
 
-const IFRAME_SRC = "https://infobae.com";
-
 function App() {
   return (
       <Router>
           <Routes>
               <Route path="/" element={<LoginPage />} />
-              <Route path="/home" element={<Home />} />
+              <Route path="/home" element={<Home key={Date.now()} />} />
+
           </Routes>
       </Router>
   );

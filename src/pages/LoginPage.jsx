@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import InputField from '../components/InputField';
 import StyledButton from '../components/StyledButton';
 import Box from '@mui/material/Box';
+import Snackbar from '@mui/material/Snackbar';
 import logoImage from '../assets/LogoBurbuja.png';
 import '../styles/LoginPage.css';
 
@@ -10,17 +11,32 @@ function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [openSnackbar, setOpenSnackbar] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!username || !password) {
-            setError('Both username and password are required');
+            setError('Username and password are required');
             return;
         }
-        console.log('Logging in with:', username, password);
-        navigate('/home');
+        if (username !== "elon@xwallet.com") {
+            setError('Access denied for this user.');
+            return;
+        }
+
+        // Reset error state and show snackbar
         setError('');
+        setOpenSnackbar(true);
+
+        // Simulate a loading time then navigate to home
+        setTimeout(() => {
+            navigate('/home');
+        }, 2000); // Navigate after 2 seconds
+    };
+
+    const handleCloseSnackbar = () => {
+        setOpenSnackbar(false);
     };
 
     return (
@@ -47,8 +63,13 @@ function LoginPage() {
                     <StyledButton>Log In</StyledButton>
                 </form>
             </Box>
+            <Snackbar
+                open={openSnackbar}
+                autoHideDuration={6000}
+                onClose={handleCloseSnackbar}
+                message="Login successful!"
+            />
         </Box>
-
     );
 }
 
