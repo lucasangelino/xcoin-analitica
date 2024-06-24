@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import InputField from '../components/InputField';
 import StyledButton from '../components/StyledButton';
 import Box from '@mui/material/Box';
@@ -14,25 +15,34 @@ function LoginPage() {
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (!username || !password) {
             setError('Username and password are required');
             return;
         }
-        if (username !== "elon@xwallet.com") {
-            setError('Access denied for this user.');
-            return;
+
+        try {
+            const response = await axios.post('https://api.inhouse.deliver.ar/users/employee/login', {
+                email: username,
+                password: password
+            });
+
+            // Guarda el token en el localStorage o en un contexto global
+            localStorage.setItem('token', response.data.token);
+
+            // Reset error state and show snackbar
+            setError('');
+            setOpenSnackbar(true);
+
+            // Navegar a la página de inicio después de un breve retraso
+            setTimeout(() => {
+                navigate('/home');
+            }, 2000); // Navegar después de 2 segundos
+
+        } catch (error) {
+            setError('Invalid username or password');
         }
-
-        // Reset error state and show snackbar
-        setError('');
-        setOpenSnackbar(true);
-
-        // Simulate a loading time then navigate to home
-        setTimeout(() => {
-            navigate('/home');
-        }, 2000); // Navigate after 2 seconds
     };
 
     const handleCloseSnackbar = () => {
