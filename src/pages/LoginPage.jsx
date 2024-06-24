@@ -28,18 +28,15 @@ function LoginPage() {
                 password: password
             });
 
-            // Guarda el token en el localStorage o en un contexto global
             localStorage.setItem('token', response.data.token);
 
-            // Reset error state and show snackbar
             setError('');
             setOpenSnackbar(true);
 
-            // Navegar a la página de inicio después de un breve retraso
             setTimeout(() => {
                 navigate('/home');
-            }, 2000); // Navegar después de 2 segundos
-
+            }, 1000);
+            
         } catch (error) {
             setError('Invalid username or password');
         }
